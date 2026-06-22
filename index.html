@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Seguras</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-slate-800 p-6 rounded-2xl shadow-xl w-full max-w-md border border-slate-700">
+        <h1 class="text-2xl font-bold text-center mb-6 text-indigo-400">
+            <i class="fa-solid fa-shield-halved mr-2"></i>Gerador de Senhas
+        </h1>
+
+        <div class="relative bg-slate-950 p-4 rounded-lg mb-6 flex items-center justify-between border border-slate-700 break-all">
+            <span id="password-display" class="font-mono text-xl tracking-wider text-emerald-400 select-all">Selecione as opções...</span>
+            <button id="copy-btn" class="ml-3 bg-indigo-600 hover:bg-indigo-500 text-white p-2 rounded transition-colors cursor-pointer" title="Copiar senha">
+                <i class="fa-regular fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="mb-6">
+            <div class="flex justify-between text-sm mb-1">
+                <span>Força da Senha:</span>
+                <span id="strength-text" class="font-bold text-slate-400">-</span>
+            </div>
+            <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                <div id="strength-bar" class="w-0 h-full bg-slate-500 transition-all duration-300"></div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <div class="flex justify-between mb-1">
+                    <label for="length-slider" class="text-sm font-medium">Tamanho: <span id="length-val" class="text-indigo-400 font-bold">16</span> caracteres</label>
+                </div>
+                <input type="range" id="length-slider" min="6" max="32" value="16" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500">
+            </div>
+
+            <div class="space-y-2 pt-2">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="uppercase" checked class="w-4 h-4 text-indigo-600 bg-slate-700 border-slate-600 rounded focus:ring-indigo-500 focus:ring-2">
+                    <span class="text-sm">Incluir Letras Maiúsculas (A-Z)</span>
+                </label>
+
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="lowercase" checked class="w-4 h-4 text-indigo-600 bg-slate-700 border-slate-600 rounded focus:ring-indigo-500 focus:ring-2">
+                    <span class="text-sm">Incluir Letras Minúsculas (a-z)</span>
+                </label>
+
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="numbers" checked class="w-4 h-4 text-indigo-600 bg-slate-700 border-slate-600 rounded focus:ring-indigo-500 focus:ring-2">
+                    <span class="text-sm">Incluir Números (0-9)</span>
+                </label>
+
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox" id="symbols" checked class="w-4 h-4 text-indigo-600 bg-slate-700 border-slate-600 rounded focus:ring-indigo-500 focus:ring-2">
+                    <span class="text-sm">Incluir Símbolos (!@#$%^&*)</span>
+                </label>
+            </div>
+        </div>
+
+        <button id="generate-btn" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg hover:shadow-indigo-500/20 active:scale-98 cursor-pointer">
+            Gerar Senha Forte
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
